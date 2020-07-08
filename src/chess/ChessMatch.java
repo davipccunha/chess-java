@@ -42,8 +42,11 @@ public class ChessMatch {
 	}
 
 	private void checkCurrentPosition(Position pos) {
-		if (!board.thereIsAPiece(pos)) {
+		if (!board.isThereAPiece(pos)) {
 			throw new ChessException("\nError: No piece found in selected position");
+		}
+		if (!board.piece(pos).isThereAnyPossibleMove()) {
+			throw new ChessException("\nError: No possible moves");
 		}
 	}
 
