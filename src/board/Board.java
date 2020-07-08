@@ -8,7 +8,7 @@ public class Board {
 	
 	public Board(int rows, int columns) {
 		if (rows < 1 || columns < 1) {
-			throw new BoardException("Error generating board. Not enough rows and/or columns");
+			throw new BoardException("\nError generating board. Not enough rows and/or columns");
 		}
 		this.rows = rows;
 		this.columns = columns;
@@ -25,21 +25,21 @@ public class Board {
 	
 	public Piece piece(int row, int column) {
 		if (!positionExists(row, column)) {
-			throw new BoardException("Error: inexistent position");
+			throw new BoardException("\nError: inexistent position");
 		}
 		return pieces[row][column];
 	}
 	
 	public Piece piece(Position pos) {
 		if (!positionExists(pos)) {
-			throw new BoardException("Error: inexistent position");
+			throw new BoardException("\nError: inexistent position");
 		}
 		return pieces[pos.getRow()][pos.getColumn()];
 	}
 	
 	public void placePiece(Piece piece, Position pos) {
 		if (thereIsAPiece(pos)) {
-			throw new BoardException("Error: there is already a piece in position " + pos);
+			throw new BoardException("\nError: there is already a piece in position " + pos);
 		}
 		pieces[pos.getRow()][pos.getColumn()] = piece;
 		piece.position = pos;
@@ -47,7 +47,7 @@ public class Board {
 	
 	public Piece removePiece(Position pos) {
 		if (!positionExists(pos)) {
-			throw new BoardException("Error: inexistent position");
+			throw new BoardException("\nError: inexistent position");
 		}
 		if (piece(pos) == null) {
 			return null;
@@ -68,7 +68,7 @@ public class Board {
 	
 	public boolean thereIsAPiece(Position pos) {
 		if (!positionExists(pos)) {
-			throw new BoardException("Error: inexistent position");
+			throw new BoardException("\nError: inexistent position");
 		}
 		return piece(pos) != null;
 	}
