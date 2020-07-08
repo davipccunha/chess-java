@@ -26,6 +26,12 @@ public class ChessMatch {
 		return matrix;
 	}
 
+	public boolean[][] possibleMoves(ChessPosition currentPosition) {
+		Position pos = currentPosition.toPosition();
+		checkCurrentPosition(pos);
+		return board.piece(pos).possibleMoves();
+	}
+
 	public ChessPiece movePiece(ChessPosition currentPosition, ChessPosition targetedPosition) {
 		Position current = currentPosition.toPosition();
 		Position target = targetedPosition.toPosition();
@@ -50,7 +56,7 @@ public class ChessMatch {
 			throw new ChessException("\nError: No possible moves");
 		}
 	}
-	
+
 	private void checkTargetedPosition(Position current, Position target) {
 		if (!board.piece(current).isMovePossible(target)) {
 			throw new ChessException("\nError: Invalid target position");
