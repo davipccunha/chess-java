@@ -42,6 +42,12 @@ public class Main {
 					System.out.print("\nB = Bishop \nN = Knight \nR = Rook \nQ = Queen");
 					System.out.print("\nEnter piece to replace promoted Pawn: ");
 					String replacement = input.nextLine().toUpperCase();
+					
+					while (!replacement.equals("B") && !replacement.equals("N") && !replacement.equals("R") && !replacement.equals("Q")) {
+						System.out.println("Invalid input");
+						System.out.println("\nB = Bishop \nN = Knight \nR = Rook \nQ = Queen");
+						System.out.print("Enter piece to replace promoted Pawn: ");
+					}
 					match.replacePromotedPiece(replacement);
 				}
 				
