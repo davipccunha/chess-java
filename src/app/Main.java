@@ -38,6 +38,13 @@ public class Main {
 					captured.add(capturedPiece);
 				}
 				
+				if (match.getPromoted() != null) {
+					System.out.print("\nB = Bishop \nN = Knight \nR = Rook \nQ = Queen");
+					System.out.print("\nEnter piece to replace promoted Pawn: ");
+					String replacement = input.nextLine().toUpperCase();
+					match.replacePromotedPiece(replacement);
+				}
+				
 			} catch (ChessException e) {
 				System.out.println(e.getMessage());
 				input.nextLine();
