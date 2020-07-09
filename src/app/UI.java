@@ -45,7 +45,7 @@ public class UI {
 			int row = Integer.parseInt(str.substring(1));
 			return new ChessPosition(column, row);
 		} catch (RuntimeException e) {
-			throw new InputMismatchException("\nError: invalid input");
+			throw new InputMismatchException("\nError: Invalid input");
 		}
 	}
 	
@@ -55,6 +55,10 @@ public class UI {
 		printCapturedPieces(captured);
 		System.out.println("\nTurn #" + match.getTurn());
 		System.out.println("Waiting for " + match.getCurrentPlayer() + " player...");
+		
+		if (match.getCheck()) {
+			System.out.println("\nCHECK!");
+		}
 	}
 
 	public static void printBoard(ChessPiece[][] pieces) {
